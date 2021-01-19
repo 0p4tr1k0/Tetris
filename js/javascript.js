@@ -51,4 +51,12 @@ const player = {
     pos: {x:5, y:5},
     matrix: matrix,
 }
+document.addEventListener('keydown', event =>{
+    if (event.keyCode === 37){
+        player.pos.x--;
+    }
+    else if(event.keyCode === 39) {
+        player.pos.x++;
+    }
+})
 update();

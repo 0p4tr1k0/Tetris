@@ -245,6 +245,7 @@ document.addEventListener('keydown', event =>{
         playerRotate(1);
     }
 })
+/*Tlačítko, které spustí hru, a zmizí.*/
 let button = document.getElementById('tlacitko');
 button.addEventListener("click", function(){
     tlacitko.style.visibility = "hidden";

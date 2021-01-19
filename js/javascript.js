@@ -6,15 +6,6 @@ context.scale(20, 20);
 
 
 
-
-
-/*T kousek*/
-const matrix = [
-    [0, 0, 0],
-    [1, 1, 1],
-    [0, 1, 0],
-]
-
 function collide(arena, player) {
     const [m, o] = [player.matrix, player.pos];
     for (let y = 0; y < m.length; ++y){
@@ -36,6 +27,59 @@ function createMatrix(w, h){
     }
     return matrix;
 }
+
+function createPiece(type){
+    if(type === 'T'){
+        return [
+            [0, 0, 0],
+            [1, 1, 1],
+            [0, 1, 0],
+        ];
+    }
+    else if(type === 'O'){
+        return [
+            [1, 1],
+            [1, 1],
+        ]
+    }
+    else if(type === 'L'){
+        return [
+            [0, 1, 0],
+            [0, 1, 0],
+            [0, 1, 1],
+        ]
+    }
+    else if(type === 'J'){
+        return [
+            [0, 1, 0],
+            [0, 1, 0],
+            [1, 1, 0],
+        ]
+    }
+    else if(type === 'I'){
+        return [
+            [0, 1, 0, 0],
+            [0, 1, 1, 0],
+            [0, 1, 0, 0],
+            [0, 1, 0, 0],
+        ]
+    }
+    else if(type === 'S'){
+        return [
+            [0, 1, 1],
+            [1, 1, 0],
+            [0, 0, 0],
+        ]
+    }
+    else if(type === 'Z'){
+        return [
+            [1, 1, 0],
+            [0, 1, 1],
+            [0, 0, 0],
+        ]
+    }
+}
+
 function draw() {
     context.fillStyle = '#000';
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -131,7 +175,7 @@ const arena = createMatrix(12, 20);
 
 const player = {
     pos: {x:5, y:5},
-    matrix: matrix,
+    matrix: createPiece('T'),
 }
 document.addEventListener('keydown', event =>{
     if (event.keyCode === 37 || event.keyCode === 65){

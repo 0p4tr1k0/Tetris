@@ -1,3 +1,4 @@
+alert("Tato hra nemá nic společného s tetrisem.");
 /*Canvas samotný*/
 const canvas =  document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -5,6 +6,7 @@ const context = canvas.getContext('2d');
 /*Zvětšení*/
 context.scale(20, 20);
 
+/*Funkce, která zkontroluje, zda je řádek zaplněný, nebo ne. Jestli najde prázné místo, pokračuje na další řádek, dokud nenajde plný.*/
 function arenaSweep() {
     let rowCount = 1;
     outer: for(let y = arena.length - 1; y > 0; --y){
@@ -13,6 +15,7 @@ function arenaSweep() {
                 continue outer;
             }
         }
+        /*Vymaže řádek, který našel zaplněný, vyprázdni ho a přičte skore za samzaný řádek*/
         const row = arena.splice(y, 1)[0].fill(0);
         arena.unshift(row);
         ++y;
@@ -199,7 +202,7 @@ function update(time = 0) {
     draw();
     requestAnimationFrame(update);
 }
-
+/*Funkce, která updatuje skore*/
 function updateScore(){
     document.getElementById('score').innerHTML = player.score;
 }
@@ -242,6 +245,12 @@ document.addEventListener('keydown', event =>{
         playerRotate(1);
     }
 })
-playerReset();
-updateScore();
-update();
+let button = document.getElementById('tlacitko');
+button.addEventListener("click", function(){
+    tlacitko.style.visibility = "hidden";
+    playerReset();
+    updateScore();
+    update();
+})
+
+

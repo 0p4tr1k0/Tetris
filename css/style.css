@@ -1,0 +1,27 @@
+
+header{
+    
+}
+body{
+    color: antiquewhite !important;
+    font-family: sans-serif !important;
+    font-size: 2em !important;
+    text-align: center !important;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 54%, rgba(42,0,255,1) 100%);
+    margin-top: 0;
+    padding-top: 0;
+}
+canvas{
+    border: solid .1em antiquewhite;
+    height: 80vh;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+    color: white;
+    text-align: center;
+}
